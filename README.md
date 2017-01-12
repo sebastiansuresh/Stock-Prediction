@@ -1,15 +1,16 @@
 # Stock-Prediction
-Linear regression can be a powerful technique to predict one set of variables knowing the second set of varibles. 
+Linear regression can be a powerful technique to predict one set of variables knowing the second set of variables. 
 In this project I tried to use regression to predict the price of a given stock at a future date.
-Linear regression is commonly used in stock price prediction and even though the predicted price wont be acurate it should predict a close enough value.
+Linear regression is commonly used in stock price prediction and even though the predicted price won’t be accurate it should predict a close enough value.
 
-The past stock price was imported using quandl and implmenting a dataframe.
+The past stock price was imported using quandl and implementing a data frame.
+
 
 ```
 df = quandl.get('WIKI/GOOGL')
 ```
 
-After importing the past stock prices the useful data is sorted into closing price , percent change, and volume.
+After importing the past stock prices the useful data is sorted into closing price, percent change, and volume.
 
 ```
 df = df[ ['Adj. Open','Adj. High','Adj. Low','Adj. Close','Adj. Volume',]]
@@ -39,7 +40,7 @@ Now the data set is trained and tested
 ```
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size = 0.2)
 ```
-The above code trains the set of features and tests the set of features and trains thr set of labels and tests the set of labels.
+The above code trains the set of features and tests the set of features and trains the set of labels and tests the set of labels.
 
 In the below code we have fitted the trained features and trained labels
 ```
@@ -52,12 +53,12 @@ Now that the classifier is trained the accuracy is around 97%.
 
 ![image](https://github.com/sebastiansuresh/Stock-Prediction/blob/master/accuracy.png)
 
-Now that our clasifier is trained we must forcast the price of the stock 
+Now that our classifier is trained we must forecast the price of the stock
 ```
 forcast_set = clf.predict(X_lately)
 print(forcast_set, accuracy, forcast_out
 ```
-After prdicting the stock price the values need to be charted on a graph. This is done by adding the forcasted values to the existing dataframe.
+After predicting the stock price the values need to be charted on a graph. This is done by adding the forecasted values to the existing data frame.
 
 ```
 for i in forcast_set:
@@ -65,7 +66,9 @@ for i in forcast_set:
     next_unix += one_day
     df.loc[next_date] = [np.nan for _ in range(len(df.columns)-1)] + [i]
 ```
-Now using the following code the predicted values can be plotted along with the exisiting data frame.
+
+Now using the following code the predicted values can be plotted along with the existing data frame.
+
 ```
 df['Adj. Close'].plot()
 df['Forecast'].plot()
