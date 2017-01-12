@@ -21,6 +21,8 @@ df['PCT_change'] = (df['Adj. Close']-df['Adj. Open'])/ df['Adj. Open']*100.0
 df = df[['Adj. Close','HL_PCT','PCT_change','Adj. Volume']]
 ```
 
+![image](https://github.com/sebastiansuresh/Stock-Prediction/blob/master/stock_price.png)
+
 In this section the features were defined to be past price values and the labels are future price values.
 ```
 forcast_col = 'Adj. Close'
@@ -48,6 +50,7 @@ print('Accuracy is',accuracy)
 ```
 Now that the classifier is trained the accuracy is around 97%.
 
+![image](https://github.com/sebastiansuresh/Stock-Prediction/blob/master/accuracy.png)
 
 Now that our clasifier is trained we must forcast the price of the stock 
 ```
@@ -71,3 +74,6 @@ plt.xlabel('Date')
 plt.ylabel('Price')
 plt.show()
 ```
+![image] (https://github.com/sebastiansuresh/Stock-Prediction/blob/master/graph_2.png)
+
+![image] (https://github.com/sebastiansuresh/Stock-Prediction/blob/master/graph_1.png)
